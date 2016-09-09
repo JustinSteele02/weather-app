@@ -1,0 +1,269 @@
+/*Vars */
+@font-face {
+  font-family: "Roboto Thin";
+  src: url("../fonts/roboto-thin-webfont.woff2") format("woff2"), url("../fonts/roboto-thin-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+/*Default Styles */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Thin", Helvetica, sans-serif;
+  font-size: 18px; }
+
+body {
+  background: url(../img/backgrounds/background.png);
+  background-attachment: fixed; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*Helper Classes */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+/*Page Styles */
+#navbar {
+  height: 50px;
+  width: 100%;
+  min-width: 320px;
+  padding: 0 5px;
+  position: fixed;
+  background-color: #4166c2;
+  color: white;
+  z-index: 1; }
+  #navbar * {
+    display: inline-block; }
+  #navbar h2 {
+    margin: 5px 0 0 0;
+    font-weight: 100; }
+  #navbar button {
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin: 5px 5px 0 0;
+    color: white;
+    background: #4166c2;
+    border: none;
+    outline: none;
+    font-size: 20px; }
+  #navbar button:hover {
+    background: #6288e7; }
+  #navbar #search {
+    background: #27448c; }
+  #navbar #search:hover {
+    background: #6288e7; }
+  #navbar input {
+    height: 40px;
+    width: 250px;
+    margin-top: 5px;
+    padding: 5px;
+    float: right;
+    border: none;
+    outline: none;
+    background: #27448c;
+    color: white;
+    font-size: 20px;
+    font-family: "Roboto Thin", Helvetica, sans-serif;
+    font-weight: 800; }
+
+.pac-container {
+  background: #27448c;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: "Roboto Thin", Helvetica, sans-serif; }
+
+.pac-logo {
+  color: white; }
+
+.pac-item {
+  border: none; }
+  .pac-item * {
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 100 !important; }
+
+.pac-item:hover {
+  background: #6288e7; }
+
+#wrapper {
+  height: 120%;
+  width: 100%;
+  max-width: 1520px;
+  min-width: 320px;
+  margin: auto;
+  padding-top: 80px;
+  z-index: 0;
+  color: white; }
+
+.section {
+  padding: 15px;
+  position: relative; }
+
+.section-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+  .section-header h1 {
+    margin: 0 0 0 15px;
+    font-weight: 100; }
+
+.mobile-tab {
+  display: none; }
+
+.section-header:last-child {
+  margin-top: 15px;
+  border: none; }
+
+/*Main Header */
+#main {
+  text-align: center; }
+  #main h3 {
+    margin: 0; }
+  #main h2 {
+    margin-top: 0;
+    font-size: 2.2rem; }
+  #main #temp-div {
+    margin: 0;
+    font-size: 4.8rem;
+    font-weight: 100; }
+    #main #temp-div #cur-temp {
+      padding-left: 110px;
+      background: url(../img/icons/clear-day.png) left center;
+      background-size: 100px 100px;
+      background-repeat: no-repeat; }
+
+/*Forecast */
+.forecast {
+  width: 100%;
+  padding: 15px 0 0 0; }
+
+.forecast-ctrl {
+  height: 170px;
+  width: 40px;
+  position: relative;
+  text-align: center; }
+  .forecast-ctrl i {
+    padding: 5px 8px;
+    -webkit-transition: all 0.1s ease;
+    -mos-transition: all 0.1s ease;
+    transition: all 0.1s ease; }
+  .forecast-ctrl i:hover {
+    border: 2px solid white;
+    border-radius: 50%; }
+
+.forecast-ctrl-left {
+  float: left; }
+
+.forecast-ctrl-right {
+  float: right; }
+
+.ctrl-inactive {
+  color: gray;
+  border: none !important; }
+
+.forecast-inner {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative; }
+
+.forecast-block {
+  width: 180px;
+  padding: 0 2px 10px 2px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+  font-size: 1.2rem;
+  white-space: normal; }
+  .forecast-block h3, .forecast-block p {
+    margin-top: 0;
+    margin-bottom: 5px; }
+  .forecast-block img {
+    width: 50px; }
+  .forecast-block .low-temp {
+    font-size: 18px; }
+
+/*Details */
+.detail-block {
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.4); }
+
+/*Media Queries */
+@media screen and (max-width: 619px) {
+  #daily-header, #hourly, #hourly-header, .forecast-ctrl {
+    display: none; }
+
+  #pac-input {
+    width: 46% !important; }
+
+  button:not(#search) {
+    display: none !important; }
+
+  .section-header {
+    border: none; }
+
+  .mobile-tab {
+    width: 50%;
+    margin-bottom: 15px;
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer; }
+
+  #daily-tab {
+    border-right: 1px solid rgba(255, 255, 255, 0.4); }
+
+  #hourly-tab {
+    color: rgba(255, 255, 255, 0.4); }
+
+  .forecast {
+    padding: 0; }
+
+  .forecast-inner, .detail-block {
+    width: 100%;
+    margin: 0;
+    white-space: normal;
+    overflow: visible; }
+
+  .daily-block {
+    width: 100%;
+    padding: 0;
+    left: 0;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+    .daily-block * {
+      display: inline-block; }
+    .daily-block .day {
+      width: 125px;
+      margin: 15px 0 0 0;
+      padding-left: 5px;
+      float: left;
+      text-align: left; }
+    .daily-block img {
+      margin: 5px 0;
+      vertical-align: middle; }
+    .daily-block h3 {
+      width: 125px;
+      margin: 10px 0 0 0;
+      float: right; }
+    .daily-block .day-sum {
+      display: block; }
+
+  .daily-block:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.4); }
+
+  .hourly-block {
+    width: 33.33%;
+    padding: 0 3px;
+    left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4); } }
+
+/*# sourceMappingURL=style.css.map */

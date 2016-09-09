@@ -1,0 +1,72 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Weather App
+    link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBKB5lk571U-C0w99RyldRlIGVkxIdQKCM&libraries=places')
+  body
+    #navbar
+      h2 Weather
+      button#search
+        i.fa.fa-search
+      input#pac-input(type='text')
+      button#toggle-temp &deg;C
+      button#refresh
+        i.fa.fa-refresh
+    #wrapper
+      #main.section
+        h3#location Grayson, KY
+        h1#temp-div
+          span#cur-temp.temp 81
+          | &deg;
+          span#temp-unit F
+        h2#cur-sum Clear Skies
+
+      .section-header
+        h1#daily-header Daily Forecast
+        .mobile-tab#daily-tab
+          h1 Daily
+        .mobile-tab#hourly-tab
+          h1 Hourly
+
+      #daily.section.forecast
+        .forecast-ctrl.forecast-ctrl-left
+          i#daily-left.fa.fa-chevron-left.centered
+        .forecast-ctrl.forecast-ctrl-right
+          i#daily-right.fa.fa-chevron-right.centered
+        .forecast-inner
+          -for (var i = 0; i < 8; i++)
+            .forecast-block.daily-block
+              p.day Day
+              img.day-icon(src='img/icons/clear-day.png')
+              h3
+                span.high-temp 85
+                | &deg;
+                | &nbsp;
+                span.low-temp 59
+                | &deg;
+              p.day-sum Sunny
+
+      #hourly-header.section-header
+        h1 Hourly Forecast
+
+      #hourly.section.forecast
+        .forecast-ctrl.forecast-ctrl-left
+          i#hourly-left.fa.fa-chevron-left.centered
+        .forecast-ctrl.forecast-ctrl-right
+          i#hourly-right.fa.fa-chevron-right.centered
+        .forecast-inner
+          -for (var i = 0; i < 24; i++)
+            .forecast-block.hourly-block
+              p.hour Hour
+              img.hour-icon(src='img/icons/clear-day.png')
+              h3 &nbsp;
+                span.hour-temp 70
+                | &deg;
+              p.hour-sum Clear
+
+    script(src='https://code.jquery.com/jquery-3.1.0.min.js', integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=', crossorigin='anonymous')
+    script(src='js/main.js', type='text/javascript')
