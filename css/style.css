@@ -52,7 +52,8 @@ body {
     background: #4166c2;
     border: none;
     outline: none;
-    font-size: 20px; }
+    font-size: 20px;
+    cursor: pointer; }
   #navbar button:hover {
     background: #6288e7; }
   #navbar #search {
@@ -90,7 +91,7 @@ body {
     font-size: 18px !important;
     font-weight: 100 !important; }
 
-.pac-item:hover {
+.pac-item:hover, .pac-item-selected {
   background: #6288e7; }
 
 #wrapper {
@@ -108,7 +109,9 @@ body {
   position: relative; }
 
 .section-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px; }
   .section-header h1 {
     margin: 0 0 0 15px;
     font-weight: 100; }
@@ -123,6 +126,10 @@ body {
 /*Main Header */
 #main {
   text-align: center; }
+  #main #main-content {
+    width: 300px;
+    margin: auto;
+    border-radius: 5px; }
   #main h3 {
     margin: 0; }
   #main h2 {
@@ -152,7 +159,8 @@ body {
     padding: 5px 8px;
     -webkit-transition: all 0.1s ease;
     -mos-transition: all 0.1s ease;
-    transition: all 0.1s ease; }
+    transition: all 0.1s ease;
+    cursor: pointer; }
   .forecast-ctrl i:hover {
     border: 2px solid white;
     border-radius: 50%; }
@@ -173,11 +181,13 @@ body {
   position: relative; }
 
 .forecast-block {
-  width: 180px;
+  width: 170px;
+  margin-right: 10px;
   padding: 0 2px 10px 2px;
   display: inline-block;
   position: relative;
   vertical-align: top;
+  border-radius: 5px;
   text-align: center;
   font-size: 1.2rem;
   white-space: normal; }
@@ -208,18 +218,18 @@ body {
     display: none !important; }
 
   .section-header {
-    border: none; }
+    border: none;
+    background: none !important; }
 
   .mobile-tab {
-    width: 50%;
-    margin-bottom: 15px;
-    text-align: center;
+    width: 49%;
     display: inline-block;
-    text-align: center;
+    border-radius: 5px;
     cursor: pointer; }
 
   #daily-tab {
-    border-right: 1px solid rgba(255, 255, 255, 0.4); }
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    margin-left: 1%; }
 
   #hourly-tab {
     color: rgba(255, 255, 255, 0.4); }
@@ -234,7 +244,8 @@ body {
     overflow: visible; }
 
   .daily-block {
-    width: 100%;
+    width: 98%;
+    margin: 2px auto 0 auto;
     padding: 0;
     left: 0;
     display: block;
@@ -261,7 +272,8 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.4); }
 
   .hourly-block {
-    width: 33.33%;
+    width: 32%;
+    margin: 2px 0 0 1%;
     padding: 0 3px;
     left: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.4); } }

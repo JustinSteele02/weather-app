@@ -39,10 +39,23 @@ function updateWeather(lat, lng) {
     dataType: 'jsonp',
     success: function(weather) {
       var weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-          months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',     'Sep', 'Oct', 'Nov', 'Dec'];
+      var $elementsToDarken = $('#main-content, .forecast-block, .mobile-tab, .section-header, .fa-chevron-left, .fa-chevron-right');
+      var transparentBlack = 'rgba(0,0,0,0.5)';
 
-      //BACKGROUNDS, change based on current weather. Not yet implemented.
-      //$('body').css('background-image', 'url(img/backgrounds/' + weather.currently.icon + '.jpg)');
+      //STYLES & BACKGROUNDS, change based on current weather
+      $('body').css('background-image', 'url(img/backgrounds/' + weather.currently.icon + '.jpg)');
+
+      switch (weather.currently.icon) {
+        case 'clear-night': case 'partly-cloudy-night': case 'fog': case 'wind':
+          $elementsToDarken.css('background', 'none');
+          $('.section-header').css('border-bottom', '1px solid rgba(255, 255, 255, 0.4)');
+          break;
+        default:
+          $elementsToDarken.css('background', transparentBlack);
+          $('.section-header').css('border', 'none');
+          break;
+      }
 
       //CURRENT
       $('#cur-sum').text(weather.currently.summary);
@@ -127,7 +140,7 @@ function refreshWeather(lat, lng) {
 //Parallax effect
 $(document).on('scroll', function() {
   var scrollPos = $(this).scrollTop();
-  $('body').css('background-position', '0 ' + -scrollPos / 4 + 'px');
+  $('body').css('background-position', '0 ' + -scrollPos / 4  + 'px');
 });
 
 //Controls, needs to be refactored into slide function
